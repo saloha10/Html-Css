@@ -1,0 +1,433 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>jQuery UI</title>
+
+
+    <!--Resizable -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https:/resources/demos/style.css">
+
+
+    <!--Sortable -->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+
+    <!-- Spinner -->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+
+    <!-- Tab -->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+
+    <!-- Droppable -->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+<!-- Effect -->
+   <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+   
+    <style>
+        #spinner1 {
+            margin-right: 100px;
+
+
+        }
+
+
+
+        #resizable {
+            width: 230px;
+            height: 150px;
+            padding: 0.5em;
+            background-color: palegreen;
+            margin-bottom: 50px;
+
+        }
+
+        #resizable h3 {
+            text-align: center;
+            margin: 0;
+            background-color: mediumseagreen;
+        }
+
+        #sortable {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            width: 20%;
+            color: aqua
+        }
+
+        #sortable li {
+            margin: 0 3px 3px 3px;
+            padding: 0.4em;
+            padding-left: 1.5em;
+            font-size: 1em;
+            height: 18px;
+            color: dodgerblue;
+        }
+
+        #sortable li span {
+            position: absolute;
+            margin-left: -1.3em;
+
+        }
+
+        #spinner1 {
+            margin-top: 50px;
+            font-size: 15px;
+
+        }
+
+        #tabs {
+            margin-left: 370px;
+            position: absolute;
+            width: 300px;
+            height: 180px;
+            top: 0;
+margin-top: 10px;
+        }
+
+
+        #draggable {
+            width: 100px;
+            height: 100px;
+            padding: 0.5em;
+background-color: lightpink;
+            margin: 10px 10px 10px 0;
+
+
+        }
+
+        #droppable {
+            width: 150px;
+            height: 150px;
+            padding: 0.5em;
+background-color: palegreen;
+            margin: 10px;
+
+        }
+
+        #drop {
+            height: 400px;
+            width: 400px;
+            
+            position: absolute;
+            left: 400px;
+            top: -300px;
+        margin-top: 500px;
+        }
+        
+        #remove {
+           position: absolute; 
+              left: 900px;
+            top: -690px;
+        margin-top: 700px;
+            
+            
+            
+        }
+        
+         .toggler { 
+             width: 500px; 
+             height: 200px; 
+             position: relative; 
+        
+        }
+   
+        #button { 
+        padding: .5em 1em; 
+        text-decoration: none; }
+   
+        #effect { 
+        width: 240px; 
+        height: 170px; 
+        padding: 0.4em; 
+        position: relative; }
+   
+        #effect h3 { 
+        margin: 0; 
+        padding: 0.4em; 
+        text-align: center; }
+    
+        .ui-effects-transfer { 
+        border: 2px dotted gray; }
+        
+        #posot {
+            
+             height: 400px;
+            width: 400px;
+            
+            position: absolute;
+            left: 900px;
+            top: -250px;
+        margin-top: 500px;
+            
+            
+        }
+    </style>
+
+    <!-- Resizable -->
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <!-- Sortable -->
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <!-- Spinner -->
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="/resources/demos/external/jquery-mousewheel/jquery.mousewheel.js"></script>
+
+    <!-- Tab -->
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <!-- Droppable -->
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+   <!-- Effect -->
+   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+   
+    <script>
+        $(function() {
+            $("#resizable").resizable();
+        });
+    </script>
+
+    <script>
+        $(function() {
+            $("#sortable").sortable();
+            $("#sortable").disableSelection();
+        });
+    </script>
+
+    <!-- spinner -->
+    <script>
+        $(function() {
+            var spinner = $("#spinner").spinner();
+
+            $("#disable").on("click", function() {
+                if (spinner.spinner("option", "disabled")) {
+                    spinner.spinner("enable");
+                } else {
+                    spinner.spinner("disable");
+                }
+            });
+            $("#destroy").on("click", function() {
+                if (spinner.spinner("instance")) {
+                    spinner.spinner("destroy");
+                } else {
+                    spinner.spinner();
+                }
+            });
+            $("#getvalue").on("click", function() {
+                alert(spinner.spinner("value"));
+            });
+            $("#setvalue").on("click", function() {
+                spinner.spinner("value", 5);
+            });
+
+            $("button").button();
+        });
+    </script>
+    <script>
+        $(function() {
+            $("#tabs").tabs();
+        });
+    </script>
+
+    <script>
+        $(function() {
+            $("#draggable").draggable();
+            $("#droppable").droppable({
+                drop: function(event, ui) {
+                    $(this)
+                        .addClass("ui-state-highlight")
+                        .find("p")
+                        .html("Dropped!");
+                }
+            });
+        });
+    </script>
+
+
+
+</head>
+
+<body>
+
+    <div id="resizable" style=" " class="ui-widget-content">
+        <h3 class="ui-widget-header">Resizable</h3>
+    </div>
+
+    <div id="sortable">
+        <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 1</li>
+        <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 2</li>
+        <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 3</li>
+        <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 4</li>
+        <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 5</li>
+        <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 6</li>
+        <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 7</li>
+
+    </div>
+
+    <div id="spinner1">
+        <p>
+            <label for="spinner" style="align-content: flex-start" style="color: black">välj ett värde:</label>
+            <input id="spinner" name="value" style="background-color: aquamarine">
+        </p>
+
+    </div>
+
+
+    <div id="tabs">
+        <ul>
+            <li><a href="#tabs-1" style="font-size: 10px">Nunc tincidunt</a></li>
+            <li><a href="#tabs-2" style="font-size: 10px">Proin dolor</a></li>
+            <li><a href="#tabs-3" style="font-size: 10px">Aenean lacinia</a></li>
+        </ul>
+        <div id="tabs-1" style="font-size: 10px">
+            <p>Proin elit arcu, rutrum commodo, vehicula tempus, commodo a, risus. Curabitur nec arcu. Donec sollicitudin mi sit amet mauris. Nam elementum quam ullamcorper ante. Etiam aliquet massa et lorem. Mauris dapibus lacus auctor risus. Aenean tempor ullamcorper leo.</p>
+        </div>
+        <div id="tabs-2" style="font-size: 10px">
+            <p>Mauris eleifend est et turpis. Duis id erat. Suspendisse potenti. Aliquam vulputate, pede vel vehicula accumsan, mi neque rutrum erat, eu congue orci lorem eget lorem. Vestibulum non ante. Class aptent taciti sociosqu ad litora torquent per conubia nostra.</p>
+        </div>
+        <div id="tabs-3" style="font-size: 10px">
+            <p> molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligend</p>
+        </div>
+    </div>
+
+    <div id="drop">
+        <div id="draggable" class="ui-widget-content">
+            <p>Drag me to my target</p>
+        </div>
+
+        <div id="droppable" class="ui-widget-header">
+            <p>Drop here</p>
+        </div>
+    </div>
+
+
+<div id="remove">
+<form action="#">
+<label>Lägg till sång i listan:</label>
+<br />
+<input type="text" id="song" />
+<br />
+<input type="button" id="add" value="Lägg till" />
+</form>
+<ul id="songs">
+<li>When You Were Young <span class="delete">(ta bort)</span></li>
+<li>A Dustland Fairytale <span class="delete">(ta bort)</span></li>
+<li>Human <span class="delete">(ta bort)</span></li>
+<li>Mr. Brightside <span class="delete">(ta bort)</span></li>
+</ul>
+</div>
+
+   
+<script>
+    
+    $('#add').click(addSong);
+$('.delete').click(deleteSong);
+// Funktion som lägger till en sång i listan
+function addSong()
+{
+// Hämtar sångens titel som användren skrivit in
+var title = $('#song').val();
+// Skapar elementet vi vill lägga till i listan
+var element = '<li>' + title + ' <span class="delete">(ta bort)</span></li>';
+// Lägger till elementet sist i listan
+$('#songs').append(element);
+// Lägger till event-handler på elemetet vi precis skapade
+$('.delete').click(deleteSong);
+}
+// Funktion som tar bort en sång (den man klicka på) från listan
+function deleteSong()
+
+{
+// Tar bort det elementet vi klickade på ("span") förälder ("li")
+$(this).parent().remove();
+}
+    
+    
+    
+    </script>   
+   <div id="posot">
+   <div class="toggler">
+  <div id="effect" class="ui-widget-content ui-corner-all">
+    <h3 class="ui-widget-header ui-corner-all">Effect</h3>
+    <p>
+      Etiam libero neque, luctus a, eleifend nec, semper at, lorem. Sed pede. Nulla lorem metus, adipiscing ut, luctus sed, hendrerit vitae, mi.
+    </p>
+  </div>
+</div>
+ 
+<select name="effects" id="effectTypes">
+  <option value="blind">Blind</option>
+  <option value="bounce">Bounce</option>
+  <option value="clip">Clip</option>
+  <option value="drop">Drop</option>
+  <option value="explode">Explode</option>
+  <option value="fade">Fade</option>
+  <option value="fold">Fold</option>
+  <option value="highlight">Highlight</option>
+  <option value="puff">Puff</option>
+  <option value="pulsate">Pulsate</option>
+  <option value="scale">Scale</option>
+  <option value="shake">Shake</option>
+  <option value="size">Size</option>
+  <option value="slide">Slide</option>
+  <option value="transfer">Transfer</option>
+</select>
+ 
+<button id="button" class="ui-state-default ui-corner-all">Run Effect</button>
+   </div>
+   
+   <script>
+  $( function() {
+    // run the currently selected effect
+    function runEffect() {
+      // get effect type from
+      var selectedEffect = $( "#effectTypes" ).val();
+ 
+      // Most effect types need no options passed by default
+      var options = {};
+      // some effects have required parameters
+      if ( selectedEffect === "scale" ) {
+        options = { percent: 50 };
+      } else if ( selectedEffect === "transfer" ) {
+        options = { to: "#button", className: "ui-effects-transfer" };
+      } else if ( selectedEffect === "size" ) {
+        options = { to: { width: 200, height: 60 } };
+      }
+ 
+      // Run the effect
+      $( "#effect" ).effect( selectedEffect, options, 500, callback );
+    };
+ 
+    // Callback function to bring a hidden box back
+    function callback() {
+      setTimeout(function() {
+        $( "#effect" ).removeAttr( "style" ).hide().fadeIn();
+      }, 1000 );
+    };
+ 
+    // Set effect from select menu value
+    $( "#button" ).on( "click", function() {
+      runEffect();
+      return false;
+    });
+  } );
+  </script>
+   
+</body>
+
+</html>
