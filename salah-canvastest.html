@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        margin: 0;
+        
+    }
+    
+    
+</style>
+   
+   <body>
+    <canvas id="Canvas" width="500" height="300" style="border: 2px solid black;"></canvas>
+
+    <script>
+        var c = document.getElementById('Canvas');
+        var ctx = c.getContext('2d');
+        
+     var lingrad = ctx.createLinearGradient(0,0,0,380);
+lingrad.addColorStop(0, '#00ABEB');
+lingrad.addColorStop(0, '#00ABEB');
+lingrad.addColorStop(1, '#ffffff');
+lingrad.addColorStop(0.7, '#66CC00');
+
+
+ ctx.fillStyle = lingrad;
+ ctx.fillRect(0,0,600,900);
+       
+        
+       
+
+        
+          ctx.beginPath();
+    ctx.strokeStyle = "#00F";
+    ctx.moveTo(330, 310); // pick up "pen," reposition at 500 (horiz), 0 (vert)
+    ctx.lineTo(150, 410); // draw straight down by 200px (200 + 200)
+    ctx.lineTo(300, 250); // draw up toward left (100 less than 300, so left)
+    ctx.closePath(); // connect end to start
+    ctx.lineWidth = 7;
+        ctx.strokeStyle = 'black';
+        
+        ctx.fillStyle = 'red';
+        ctx.stroke(); // outline the shape that's been described
+        ctx.fill();
+        
+     ctx.beginPath();
+
+     
+        
+        
+         ctx.arc(300, 220, 30, 0, 2 * Math.PI);
+        ctx.lineWidth = 2;
+        ctx.strokeStyle = 'black';
+        ctx.fillStyle = 'red';
+        ctx.stroke();
+        ctx.fill();
+        
+           ctx.beginPath();
+           
+           ctx.arc(300, 235, 10, 3.1, 2 * Math.PI);
+        ctx.fillStyle = "#3a3535"
+ctx.lineWidth = 1;
+        ctx.stroke();
+        
+        ctx.beginPath();
+        
+        ctx.arc(290, 205, 5, 0, 2 * Math.PI);
+
+        ctx.fillStyle = "#3a3535"
+        ctx.fill();
+        
+        
+        
+         ctx.arc(310, 205, 5, 0, 2 * Math.PI);
+
+        ctx.fillStyle = "#3a3535"
+        ctx.fill();
+          //ctx.moveTo(120, 190);
+         ctx.beginPath();
+         ctx.moveTo(200, 260);
+         ctx.lineTo(270, 280);
+      ctx.lineWidth = "3";
+         ctx.stroke();
+        
+          ctx.beginPath();
+        ctx.rect(165, 80, 70, 70);
+        ctx.strokeStyle = 'black';
+        ctx.lineWidth = 3;
+        ctx.stroke();
+        
+        ctx.beginPath
+        
+          ctx.beginPath();
+         ctx.moveTo(200, 150);
+         ctx.lineTo(200, 290);
+        ctx.stroke();
+        
+
+        ctx.beginPath();
+        
+       ctx.beginPath();
+        ctx.arc(230, 115, 15, 1.5, 1.5 * Math.PI);
+        ctx.fillStyle = "#3a3535"
+ctx.lineWidth = 1;
+        ctx.stroke();
+        
+        ctx.beginPath();
+        ctx.arc(210, 115, 15, 1.5, 1.5 * Math.PI);
+        ctx.fillStyle = "#3a3535"
+ctx.lineWidth = 1;
+        ctx.stroke();
+        
+        
+        ctx.beginPath();
+        
+        ctx.beginPath();
+        ctx.arc(190, 115, 15, 1.5, 1.5 * Math.PI);
+        ctx.fillStyle = "#3a3535"
+ctx.lineWidth = 1;
+        ctx.stroke();
+        
+       
+
+    </script>
+</body>
+</html>
