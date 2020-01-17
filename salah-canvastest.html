@@ -36,15 +36,15 @@ lingrad.addColorStop(0.7, '#66CC00');
         
           ctx.beginPath();
     ctx.strokeStyle = "#00F";
-    ctx.moveTo(330, 310); // pick up "pen," reposition at 500 (horiz), 0 (vert)
-    ctx.lineTo(150, 410); // draw straight down by 200px (200 + 200)
-    ctx.lineTo(300, 250); // draw up toward left (100 less than 300, so left)
-    ctx.closePath(); // connect end to start
+    ctx.moveTo(330, 310); 
+    ctx.lineTo(150, 410); 
+    ctx.lineTo(300, 250); 
+    ctx.closePath(); 
     ctx.lineWidth = 7;
         ctx.strokeStyle = 'black';
         
         ctx.fillStyle = 'red';
-        ctx.stroke(); // outline the shape that's been described
+        ctx.stroke(); 
         ctx.fill();
         
      ctx.beginPath();
