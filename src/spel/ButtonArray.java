@@ -35,7 +35,7 @@ public class ButtonArray extends Application{
 		//Storlek för knapparna	
 		    buttons[i].setPrefSize(100, 100);
 		}
-		
+		//for loop som sprider ut knapparna i 3x3 rader. 3 i varje row(rowindex) och i varje kolumn(kolIndex)
 		int buttonIndex = 0;
 		for (int rowIndex = 0; rowIndex < 3; ++rowIndex) {
 			for (int kolIndex = 0; kolIndex < 3; ++kolIndex) {
