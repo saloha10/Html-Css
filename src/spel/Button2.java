@@ -3,14 +3,15 @@ package spel;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.layout.Pane;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
-public class Button1 extends Application{
+public class Button2 extends Application{
 	private Stage primary;
 	private Scene scene;
-	private Pane pane;
+	private GridPane gridpane;
 	private Button jaButton;
+	private Button noButton;
 	
 	
 //launch args startar javafx applicationen genom "void start"
@@ -21,16 +22,21 @@ public class Button1 extends Application{
 
 	public void start(Stage arg0) throws Exception {
 		primary = arg0;
-		pane = new Pane();
+		gridpane = new GridPane();
 		//width och height för scene 
-		scene = new Scene(pane, 400, 300);
+		scene = new Scene(gridpane, 400, 300);
 		
-		//skapar en knapp med yes skrivet
-		jaButton = new Button("yes");
-		//storlek av button 
+		//skapar en knapp med O/X skrivet
+		jaButton = new Button("O");
+		noButton = new Button("X");
+		//storleken av knapparna 
 		jaButton.setPrefSize(200, 100);
-		//jag lägger knappen inuti pane
-		pane.getChildren().add(jaButton);
+		noButton.setPrefSize(200, 100);
+		//eftersom gridpane används så behövs det inte att lägga in dem i children
+		gridpane.add(jaButton, 0, 0);
+		gridpane.add(noButton, 0, 1);
+		
+		
 		
 		primary.setTitle("Tictactoe");
 		//lägger in scene inuti stage
