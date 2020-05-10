@@ -1,17 +1,19 @@
 package spel;
 
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
-public class ButtonArray extends Application{
+public class ButtonArray extends Application implements EventHandler<ActionEvent>{
 	private Stage primary;
 	private Scene scene;
 	private GridPane gridpane;
 	//array för att lägga in 9 knappar
-	private Button [] buttons;
+	private TicTacToe [] buttons;
 	private final int antalButtons = 9;
 	
 	
@@ -28,13 +30,16 @@ public class ButtonArray extends Application{
 		scene = new Scene(gridpane, 300, 300);
 		
 		//for loop som anroper antalbuttons
-	buttons = new Button[antalButtons];
+	buttons = new TicTacToe[antalButtons];
 		for (int i=0; i < antalButtons; ++i) {
 	//eftersom räkneordningen brukar alltid börja på 0 så plusade jag till en etta för att det ska gå från 1-9
-			buttons[i] = new Button("Button " + (i + 1));
+			buttons[i] = new TicTacToe();
 		//Storlek för knapparna	
 		    buttons[i].setPrefSize(100, 100);
+		    buttons[i].setOnAction(this);
 		}
+		
+		
 		//for loop som sprider ut knapparna i 3x3 rader. 3 i varje row(rowindex) och i varje kolumn(kolIndex)
 		int buttonIndex = 0;
 		for (int rowIndex = 0; rowIndex < 3; ++rowIndex) {
@@ -55,6 +60,23 @@ public class ButtonArray extends Application{
 		//ser till att staget visas
 		primary.show();
 		
+		
+	}
+
+	// kollar vilken knapp som har tryckts
+	public void handle(ActionEvent event) {
+		for (int i=0; i<antalButtons; ++i) {
+			if (buttons[i]==event.getSource()) {
+				try {
+					buttons[i].changeState();
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+			}
+			
+		}
 		
 	}
 
